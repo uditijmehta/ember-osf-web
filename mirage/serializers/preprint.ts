@@ -61,11 +61,16 @@ export default class PreprintSerializer extends ApplicationSerializer<PreprintMi
                         meta: this.buildRelatedLinkMeta(model, 'affiliatedInstitutions'),
                     },
                 },
-            };
-        }
-
-        if (model.bibliographicContributors) {
-            relationships.bibliographicContributors = {
+            },
+            affiliatedInstitutions: {
+                links: {
+                    related: {
+                        href: `${apiUrl}/v2/preprints/${model.id}/institutions/`,
+                        meta: this.buildRelatedLinkMeta(model, 'affiliatedInstitutions'),
+                    },
+                },
+            },
+            bibliographicContributors: {
                 links: {
                     related: {
                         href: `${apiUrl}/v2/preprints/${model.id}/bibliographic_contributors/`,
