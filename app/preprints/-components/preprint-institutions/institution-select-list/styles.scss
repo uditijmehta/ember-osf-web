@@ -1,44 +1,27 @@
-.institution-list-container {
-    width: 100%;
+.institutionList {
+    ul {
+        list-style: none;
+        margin: 0;
 
-    .institution-container {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-items: center;
-        align-items: flex-start;
-        margin-bottom: 5px;
-        height: 30px;
-
-        .institution-checkbox {
-            margin-right: 10px;
-            display: flex;
-            flex-direction: row;
-            justify-items: center;
-            align-items: center;
-            padding-bottom: 4px;
-            height: 30px;
-        }
-
-        .label {
-            font-weight: normal;
-            font-size: 14px;
-            display: flex;
-            flex-direction: row;
-            justify-items: center;
-            align-items: center;
-            height: 30px;
+        & > li {
+            border: 0;
+            padding: 10px 15px 0;
+            display: inline-block;
             width: 100%;
         }
     }
 
-    &.mobile {
-        .label {
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            width: 90%;
-        }
-
+    .institutionIcon {
+        margin-right: 5px;
     }
+
+}
+
+.addRemoveButton.addRemoveButton {
+    color: #000;
+}
+
+.label {
+    font-weight: normal;
+    font-size: 14px;
 }

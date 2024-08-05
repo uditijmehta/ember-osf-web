@@ -1,28 +1,16 @@
-import Component from '@glimmer/component';
-import { inject as service } from '@ember/service';
-import Intl from 'ember-intl/services/intl';
-import InstitutionsManagerComponent from '../institution-manager/component';
+import Component from '@ember/component';
 
+import { layout } from 'ember-osf-web/decorators/component';
+import { InstitutionsManager } from 'osf-components/components/editable-field/institutions-manager/component';
+import styles from './styles';
+import template from './template';
 
-/**
- * The Institution Select List Args
- */
-interface InstitutionSelectListArgs {
-    manager: InstitutionsManagerComponent;
-}
-
-export default class InstitutionSelectList extends Component<InstitutionSelectListArgs> {
-    @service intl!: Intl;
-
+@layout(template, styles)
+export default class InstitutionSelectList extends Component {
     // Required
-    manager = this.args.manager;
+    manager!: InstitutionsManager;
 
-    public get displayComponent(): boolean {
-        return this.args.manager.institutions.length > 0;
-    }
-
-    public get descriptionDisplay(): string {
-        return this.intl.t('preprints.submit.step-metadata.institutions.description',
-            { singularPreprintWord: this.manager.preprintWord, htmlSafe: true}) as string;
-    }
+    // optional properties
+    usePlaceholders = false;
+    reloadList!: (page?: number) => void;
 }
